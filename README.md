@@ -14,6 +14,8 @@ Please read the publication for an explanation of the algorithm in this reposito
 This implementation uses the orientation estimator of: https://github.com/dlaidig/qmt
 which was published under MIT license by Thomas Seel and Stefan Ruppin
 
+Please contact me if you are interested in using this code or reproducing my results but have trouble to run the code.
+
 # Dependencies
 (Please look up the dependencies of the repositories)
 1.  ADEKF https://github.com/TomLKoller/ADEKF
