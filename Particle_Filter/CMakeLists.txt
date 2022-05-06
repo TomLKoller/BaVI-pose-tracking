@@ -13,18 +13,11 @@ include(GNUInstallDirs)
 add_executable(${PROJECT_NAME}_Smooth MACOSX_BUNDLE realDataSmoothing.cpp)
 #add_executable(${PROJECT_NAME}_Smooth MACOSX_BUNDLE checkOutlier.cpp)
 
-add_executable(${PROJECT_NAME}_sim MACOSX_BUNDLE simulation.cpp)
   target_include_directories(${PROJECT_NAME}_Smooth PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>
   $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}> ../utils ../json/include)
 
 target_compile_features(${PROJECT_NAME}_Smooth PUBLIC cxx_std_17)
-
-target_include_directories(${PROJECT_NAME}_sim PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>
-  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}> ../utils)
-
-target_compile_features(${PROJECT_NAME}_sim PUBLIC cxx_std_17)
 
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 
@@ -56,8 +49,5 @@ target_compile_definitions(${PROJECT_NAME}_Smooth PUBLIC MANIFOLD_WITH_CERES)
 
 
 
-target_include_directories(${PROJECT_NAME}_sim PUBLIC ${EIGEN3_INCLUDE_DIR} ~/repositories/ADEKF/include/ADEKF/ ../BatchViterbi/include ~/repositories/ADEKF/ADEKF_VIZ/include)
-target_link_libraries(${PROJECT_NAME}_sim PUBLIC utils ${Boost_LIBRARIES}   ADEKF_VIZ::ADEKF_VIZ ${CMAKE_THREAD_LIBS_INIT} ceres  ${LIBCONFIG++_LIBRARIES})
 
 
-target_compile_definitions(${PROJECT_NAME}_sim PUBLIC MANIFOLD_WITH_CERES )
